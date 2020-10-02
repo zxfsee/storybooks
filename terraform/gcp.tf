@@ -1,6 +1,6 @@
 provider "google" {
   credentials = file("terraform-sa-key.json")
-  project     = "devops-directive-traversy"
+  project     = var.gcp_project_id
   region      = "us-central1"
   zone        = "us-central1-c"
   version     = "~> 3.38"

@@ -1,4 +1,4 @@
-PROJECT_ID=devops-directive-traversy
+PROJECT_ID=devops-directive-storybooks
 ZONE=us-central1-a
 
 run-local:

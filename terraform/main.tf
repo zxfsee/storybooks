@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket = "devops-directive-traversy-terraform"
+    bucket = "devops-directive-storybooks-terraform"
     prefix = "/state/storybooks"
   }
 }
