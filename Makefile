@@ -16,6 +16,7 @@ ifndef ENV
 	$(error Please set ENV=[staging|prod])
 endif
 
+# This cannot be indented or else make will include spaces in front of secret
 define get-secret
 $(shell gcloud secrets versions access latest --secret=$(1) --project=$(PROJECT_ID))
 endef
