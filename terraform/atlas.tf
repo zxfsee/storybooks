@@ -33,11 +33,6 @@ resource "mongodbatlas_database_user" "mongo_user" {
     role_name     = "readWrite"
     database_name = "storybooks"
   }
-
-  roles {
-    role_name     = "readAnyDatabase"
-    database_name = "admin"
-  }
 }
 
 # ip whitelist

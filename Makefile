@@ -46,6 +46,7 @@ terraform-action: check-env
 ###
 
 SSH_STRING=palas@storybooks-vm-$(ENV)
+OAUTH_CLIENT_ID=542106262510-8ki8hqgu7kmj2b3arjdqvcth3959kmmv.apps.googleusercontent.com
 
 GITHUB_SHA?=latest
 LOCAL_TAG=storybooks-app:$(GITHUB_SHA)
@@ -85,8 +86,8 @@ deploy: check-env
 			--restart=unless-stopped \
 			-p 80:3000 \
 			-e PORT=3000 \
-			-e \"MONGO_URI=mongodb+srv://storybooks-user-$(ENV):$(call get-secret,atlas_user_password_$(ENV))@storybooks-$(ENV).kkwmy.gcp.mongodb.net/$(DB_NAME)?retryWrites=true&w=majority\" \
-			-e GOOGLE_CLIENT_ID=622715457982-885mh022l19kdehu68umar8rbq4qgq24.apps.googleusercontent.com \
+			-e \"MONGO_URI=mongodb+srv://storybooks-user-$(ENV):$(call get-secret,atlas_user_password_$(ENV))@storybooks-$(ENV).kkwmy.mongodb.net/$(DB_NAME)?retryWrites=true&w=majority\" \
+			-e GOOGLE_CLIENT_ID=$(OAUTH_CLIENT_ID) \
 			-e GOOGLE_CLIENT_SECRET=$(call get-secret,google_oauth_client_secret) \
 			$(REMOTE_TAG) \
 			'
